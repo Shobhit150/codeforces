@@ -1,14 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool oddDivisor(long long n) {
-    int count = 0;
-    while(n) {
-        n = n & (n-1);
-        count++;
-        if(count > 1) return true;
+long long sumOfMedian(int n, int k, vector<long long>& a) {
+    long long gap = n/2;
+    long long j = (n*k) - gap - 1;
+    long long sumi = 0;
+    for(int i=0;i<k;i++) {
+        sumi += a[j];
+        
+        j -= (gap + 1);
     }
-    return false;
+    return sumi;
+
 }
 
 int main() {
@@ -18,15 +21,14 @@ int main() {
     int t;
     cin >> t;
 
-    while (t--) {
-        long long n;
-        cin >> n;
-        
-        if(oddDivisor(n)) {
-            cout << "Yes" << endl;
-        } else {
-            cout << "No" << endl;
+     while (t--) {
+        int n, k;
+        cin >> n >> k;
+        vector<long long> a(n*k);
+        for(int i=0;i<(n*k);i++) {
+            cin >> a[i];
         }
+        cout << sumOfMedian(n,k,a) << "\n";
 
     }
     return 0;
