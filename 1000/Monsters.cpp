@@ -1,29 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-long long olyaandgamewitharrays(int n, vector<vector<int>> &a) {
-    int miniIdx = 0;
-    int miniFirst = 0;
+void monster(int n, int k, vector<pair<int,int>> &a) {
+    sort(a.begin(), a.end());
     for(int i=0;i<n;i++) {
-        if(a[i][1] < a[miniIdx][1]) {
-            miniIdx = i;
-        }
-        // cout << "-->> " << miniFirst << " " << a[i][0] << " " << a[i][miniFirst] << endl;
-        if(a[i][0] < a[miniFirst][0]) {
-            miniFirst = i;
-        }
+        cout << a[i].second + 1 << " ";
     }
-    // cout << "miniIdx " << miniIdx << endl;
-    // cout << "miniFirst " << miniFirst << endl;
-    long long ans = 0;
-    for(int i=0;i<n;i++) {
-        if(i == miniIdx) {
-            ans += a[miniFirst][0];
-        } else {
-            ans += a[i][1];
-        }
-    }
-    return ans;
+    cout << endl;
+
 }
 
 int main() {
@@ -34,21 +18,17 @@ int main() {
     cin >> t;
 
      while (t--) {
-        int n;
-        cin >> n;
-        vector<vector<int>> a(n);
+        int n, k;
+        cin >> n >> k;
+        vector<pair<int,int>> a(n);
         for(int i=0;i<n;i++) {
-            int m;
-            cin >> m;
-            vector<int> b(m);
-            for(int j=0;j<m;j++) {
-                cin >> b[j];
-            }
-            sort(b.begin(), b.end());
-            a[i] = b;
-
+            int c;
+            cin >> c;
+            // int remainder = c % k;
+            // if(remainder == 0) remainder = k;
+            a[i] = {{c%k}, i};
         }
-        cout << olyaandgamewitharrays(n,a) << "\n";
+        monster(n,k,a);
 
     }
     return 0;
