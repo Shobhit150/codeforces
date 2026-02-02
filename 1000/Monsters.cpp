@@ -7,7 +7,6 @@ void monster(int n, int k, vector<pair<int,int>> &a) {
         cout << a[i].second + 1 << " ";
     }
     cout << endl;
-
 }
 
 int main() {
