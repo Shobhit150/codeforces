@@ -17,11 +17,10 @@ void solve() {
     for(int i=sz-1; i>=0;i--) { // rggry rggry
         if(s[i] == 'g') {
             foundG = true;
+            curr = 0;
         }
         if(s[i] == c && foundG) {
             maxi = max(curr, maxi);
-            curr = 0;
-            foundG = false;
         }
         if(foundG) {
             curr++;
@@ -36,7 +35,7 @@ int main() {
     int t;
     cin >> t;
 
-     while (t--) {
+    while (t--) {
         solve();
     }
     return 0;

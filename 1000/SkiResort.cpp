@@ -30,7 +30,7 @@ int main() {
     int t;
     cin >> t;
 
-     while (t--) {
+    while (t--) {
         int n, k, q;
         cin >> n >> k >> q;
         vector<int> a(n);
