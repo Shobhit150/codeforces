@@ -22,21 +22,9 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
-    int n;
-    cin >> n;
-    vector<ll> a(n);
-    for(int i=0;i<n;i++) {
-        cin >> a[i];
-    }
-    unordered_set<ll> s;
-    for(int i=0;i<n;i++) {
-        s.insert(a[i]);
-    }
-    if(s.size() < n) {
-        cout << "YES\n";
-    } else {
-        cout << "NO\n";
-    }
+    int x,y,k;
+    cin >> x >> y >> k;
+    
 }
 
 int main() {

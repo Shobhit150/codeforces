@@ -22,21 +22,13 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
-    int n;
-    cin >> n;
-    vector<ll> a(n);
-    for(int i=0;i<n;i++) {
-        cin >> a[i];
-    }
-    unordered_set<ll> s;
-    for(int i=0;i<n;i++) {
-        s.insert(a[i]);
-    }
-    if(s.size() < n) {
-        cout << "YES\n";
-    } else {
-        cout << "NO\n";
-    }
+    ll x, y, k;
+
+    cin >> x >> y >> k;
+    ll totalStickNeeded = 1LL*(k*y) + k;
+    ll ans = (totalStickNeeded - 1 + x-1 - 1)/(x-1);
+
+    cout << ans+k << " " << "\n";
 }
 
 int main() {
