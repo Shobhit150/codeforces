@@ -22,23 +22,23 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
-    stack<int> s;
     int n;
     cin >> n;
-    for(int i=0;i<n;i++) {
-        char c;
-        cin >> c;
-        if(c == ')') {
-            if(!s.empty() && s.top() == '(') {
-                s.pop();
-            } else {
-                s.push(c);
-            }
-        } else {
-            s.push(c);
+    int j = 3*n;
+    int i = 1;
+    for(int k=0;k<n;k++) {
+        cout << i << " ";
+        i++;
+        cout << j << " ";
+        j--;
+        if(k==n-1) {
+            cout << j;
+        } else{
+            cout << j << " ";
         }
+        j--;
     }
-    cout << s.size()/2 << "\n";
+    cout << "\n";
 }
 
 int main() {

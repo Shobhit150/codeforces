@@ -22,23 +22,24 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
-    stack<int> s;
     int n;
     cin >> n;
-    for(int i=0;i<n;i++) {
-        char c;
-        cin >> c;
-        if(c == ')') {
-            if(!s.empty() && s.top() == '(') {
-                s.pop();
-            } else {
-                s.push(c);
-            }
-        } else {
-            s.push(c);
+
+    vector<ll> primes;
+    for (ll x = 2; primes.size() < n; x++) {
+        bool ok = true;
+        for (ll p : primes) {
+            if (p * p > x) break;
+            if (x % p == 0) { ok = false; break; }
         }
+        if (ok) primes.push_back(x);
     }
-    cout << s.size()/2 << "\n";
+    
+    cout << primes[0];
+    for (int i = 1; i < n; i++) {
+        cout << ' ' << primes[i-1] * primes[i];
+    }
+    cout << '\n';
 }
 
 int main() {

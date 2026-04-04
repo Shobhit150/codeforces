@@ -22,23 +22,19 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
-    stack<int> s;
     int n;
     cin >> n;
+    vector<int> a(n);
     for(int i=0;i<n;i++) {
-        char c;
-        cin >> c;
-        if(c == ')') {
-            if(!s.empty() && s.top() == '(') {
-                s.pop();
-            } else {
-                s.push(c);
-            }
-        } else {
-            s.push(c);
+        cin >> a[i];
+    }
+    int maxi = 0;
+    for(int i=0;i<n;i++) {
+        for(int j=i+1;j<n;j++) {
+            maxi = max(maxi, a[i] ^ a[j]);
         }
     }
-    cout << s.size()/2 << "\n";
+    cout << maxi << "\n";
 }
 
 int main() {
