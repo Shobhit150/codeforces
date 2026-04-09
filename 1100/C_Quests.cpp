@@ -34,13 +34,19 @@ void solve() {
         cin >> b[i];
     }
     int i=0;
-    int ans = 0;
+    ll ans = 0;
     int pre = 0;
-    while(i<n) {
+    ll maxi = 0;
+    int maxB = 0;
+    while(i<n && i<k) {
         pre += a[i];
+        maxB = max(maxB, b[i]);
+        int remaining = k - (i + 1);
+        ll curr = pre + (remaining * maxB); 
+        maxi = max(maxi, curr);
         i++;
-        
     }
+    cout << maxi << "\n";
 }
 
 int main() {
